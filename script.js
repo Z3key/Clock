@@ -4,7 +4,13 @@ function updateClock(time) {
     const minutes = String(now.getUTCMinutes());
     const seconds = String(now.getUTCSeconds());
 
-    console.log(`${hours}:${minutes}:${seconds}`);
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+
+    // console.log(`${hours}:${minutes}:${seconds}`);
+
+    const selectTimeZone = document.getElementById('timeZone');
+    timeZone = parseInt(selectTimeZone.value, 10);
+    selectTimeZone.textContent = timeZone;
 
 }
 
@@ -18,9 +24,9 @@ let timeZone;
 timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 let diffrent_time_UTC = new Date().getTimezoneOffset() / 60;
-console.log(timeZone)
-console.log(diffrent_time_UTC)
+// console.log(timeZone)
+// console.log(diffrent_time_UTC)
 
-updateClock(timeZone);
+// updateClock(timeZone);
 // updateClock(9);
-// setInterval(updateClock(9), 1000);
+setInterval(updateClock(9), 1000);
